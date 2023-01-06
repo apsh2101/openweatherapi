@@ -30,3 +30,6 @@ jobs:
         cache: maven
     - name: Test with maven
       run: mvn -Dtest=AirPollutionTest,CurrentWeatherApi,DailyForecastApi,RoadriskApi --file pom.xml test
+    - name: Publish Test Report
+      if: ${{ always() }}
+      uses: scacap/action-surefire-report@v1
